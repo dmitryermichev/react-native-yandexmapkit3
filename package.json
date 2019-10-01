@@ -1,0 +1,38 @@
+{
+    "name": "react-native-yandexmapkit3",
+    "title": "React Native Yandexmapkit3",
+    "version": "1.0.0",
+    "description": "React native module for Yandex Map Kit MapView support",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/dmitryermichev/react-native-yandexmapkit3.git",
+        "baseUrl": "https://github.com/dmitryermichev/react-native-yandexmapkit3"
+    },
+    "keywords": [
+        "react-native"
+    ],
+    "author": {
+        "name": "Your Name",
+        "email": "yourname@email.com"
+    },
+    "license": "MIT",
+    "licenseFilename": "LICENSE",
+    "readmeFilename": "README.md",
+    "peerDependencies": {
+        "react": "^16.8.1",
+        "react-native": ">=0.59.0-rc.0 <1.0.x"
+    },
+    "devDependencies": {
+        "@types/jest": "^24.0.18",
+        "@types/react": "^16.9.4",
+        "@types/react-native": "^0.60.17",
+        "@types/react-test-renderer": "^16.9.0",
+        "react": "^16.8.3",
+        "react-native": "^0.59.10",
+        "typescript": "^3.6.3"
+    }
+}
