@@ -1,5 +1,23 @@
 import {NativeModules} from 'react-native';
 
-const {ReactNativeYandexmapkit3} = NativeModules;
+import YandexMap, {
+    CameraPosition,
+    Event,
+    Location,
+    OnInteractionCallback,
+    OnInteractionResult,
+    YandexMapProps
+} from "./YandexMap";
 
-export default ReactNativeYandexmapkit3;
+const {RNYandexMapKit} = NativeModules;
+
+export {
+    YandexMap,
+    CameraPosition,
+    Event,
+    Location,
+    OnInteractionResult,
+    OnInteractionCallback,
+    YandexMapProps
+};
+export default RNYandexMapKit;

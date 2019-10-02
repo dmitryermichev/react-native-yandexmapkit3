@@ -46,6 +46,10 @@ android {
 
 repositories {
     mavenLocal()
+    google()
+    maven {
+        url "http://maven.google.com/"
+    }
     maven {
         // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
         url "$rootDir/../node_modules/react-native/android"
@@ -54,7 +58,6 @@ repositories {
         // Android JSC is installed from npm
         url "$rootDir/../node_modules/jsc-android/dist"
     }
-    google()
     jcenter()
 }
 
@@ -63,6 +66,10 @@ dependencies {
     // https://github.com/facebook/react-native/blob/0.61-stable/template/android/app/build.gradle#L192
     //noinspection GradleDynamicVersion
     implementation 'com.facebook.react:react-native:+'  // From node_modules
+    // last yandex map kit dependency
+    implementation 'com.yandex.android:mapkit:3.2.0'
+    // dependency for google play services location
+    implementation 'com.google.android.gms:play-services-location:16.0.0'
 }
 
 def configureReactNativePom(def pom) {

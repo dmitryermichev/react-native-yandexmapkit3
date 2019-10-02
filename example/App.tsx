@@ -8,33 +8,36 @@
  * https://github.comApp/facebook/react-native
  */
 
-import React, {Component} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import ReactNativeYandexmapkit3 from 'react-native-yandexmapkit3';
+import React from 'react';
+import {StyleSheet} from 'react-native';
+import {CameraPosition, Event, YandexMap} from 'react-native-yandexmapkit3';
 
-export default class App extends Component<{}> {
-    state = {
-        status: 'starting',
-        message: '--'
-    };
+type Props = {}
 
-    componentDidMount() {
-        ReactNativeYandexmapkit3.sampleMethod('Testing', 123, (message: string) => {
-            this.setState({
-                status: 'native callback received',
-                message
-            });
-        });
+const initialCameraPosition: CameraPosition = {
+    point: {
+        type: Event.UserEvent,
+        latitude: 43.0000,
+        longitude: 41.0167,
+    },
+    zoom: 15,
+    azimuth: 0,
+    tilt: 0,
+};
+
+export default class App extends React.PureComponent<Props> {
+    constructor(props: Props) {
+        super(props);
     }
+
 
     render() {
         return (
-            <View style={styles.container}>
-                <Text style={styles.welcome}>☆ReactNativeYandexmapkit3 example☆</Text>
-                <Text style={styles.instructions}>STATUS: {this.state.status}</Text>
-                <Text style={styles.welcome}>☆NATIVE CALLBACK MESSAGE☆</Text>
-                <Text style={styles.instructions}>{this.state.message}</Text>
-            </View>
+            <YandexMap style={styles.container}
+                       cameraPosition={initialCameraPosition}
+                       onInteraction={(event) => console.warn(event)}
+            >
+            </YandexMap>
         );
     }
 }

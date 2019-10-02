@@ -3,6 +3,7 @@ package com.example;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.github.dmitryermichev.reactnative.yandexmapkit3.ReactNativeYandexmapkit3Module;
 import com.github.dmitryermichev.reactnative.yandexmapkit3.ReactNativeYandexmapkit3Package;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;

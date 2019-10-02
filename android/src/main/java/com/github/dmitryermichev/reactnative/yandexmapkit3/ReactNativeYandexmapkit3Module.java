@@ -1,9 +1,12 @@
 package com.github.dmitryermichev.reactnative.yandexmapkit3;
 
+import android.content.Context;
+
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.Callback;
+import com.yandex.mapkit.MapKitFactory;
 
 public class ReactNativeYandexmapkit3Module extends ReactContextBaseJavaModule {
 
@@ -16,12 +19,19 @@ public class ReactNativeYandexmapkit3Module extends ReactContextBaseJavaModule {
 
     @Override
     public String getName() {
-        return "ReactNativeYandexmapkit3";
+        return "RNYandexMapKit";
     }
 
-    @ReactMethod
-    public void sampleMethod(String stringArgument, int numberArgument, Callback callback) {
-        // TODO: Implement some actually useful functionality
-        callback.invoke("Received numberArgument: " + numberArgument + " stringArgument: " + stringArgument);
+    public static void init(Context activity, String apiKey){
+        MapKitFactory.setApiKey(apiKey);
+        MapKitFactory.initialize(activity);
+    }
+
+    public static void onStop() {
+        MapKitFactory.getInstance().onStop();
+    }
+
+    public static void onStart() {
+        MapKitFactory.getInstance().onStart();
     }
 }

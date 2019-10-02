@@ -1,5 +1,6 @@
 package com.github.dmitryermichev.reactnative.yandexmapkit3;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -18,6 +19,6 @@ public class ReactNativeYandexmapkit3Package implements ReactPackage {
 
     @Override
     public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
-        return Collections.emptyList();
+        return Arrays.<ViewManager>asList(new YandexMapViewManager());
     }
 }
