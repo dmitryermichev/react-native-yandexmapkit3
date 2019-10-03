@@ -2,13 +2,8 @@ import {ViewProps} from 'react-native';
 import * as React from 'react';
 
 declare module "react-native-yandexmapkit3" {
-    export enum Event {
-        UserEvent = 1,
-        ApplicationEvent = 2
-    }
-
+    import {ImageRequireSource} from 'react-native';
     export type Location = {
-        type: Event,
         readonly latitude: number;
         readonly longitude: number;
     };
@@ -29,6 +24,22 @@ declare module "react-native-yandexmapkit3" {
         onInteraction?: OnInteractionCallback;
     } & ViewProps;
 
+    export type Anchor = {
+        x: number;
+        y: number;
+    }
+
+    export type YandexPlacemarkProps = {
+        location: Location;
+        image?: ImageRequireSource;
+        scale?: number;
+        anchor?: Anchor;
+        onTap?: () => void;
+    } & ViewProps;
+
     export class YandexMap extends React.PureComponent<YandexMapProps, any> {
+    }
+
+    export class YandexPlacemark extends React.PureComponent<YandexPlacemarkProps, any> {
     }
 }

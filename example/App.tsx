@@ -10,13 +10,12 @@
 
 import React from 'react';
 import {StyleSheet} from 'react-native';
-import {CameraPosition, Event, YandexMap} from 'react-native-yandexmapkit3';
+import {CameraPosition, YandexMap, YandexPlacemark} from 'react-native-yandexmapkit3';
 
 type Props = {}
 
 const initialCameraPosition: CameraPosition = {
     point: {
-        type: Event.UserEvent,
         latitude: 43.0000,
         longitude: 41.0167,
     },
@@ -34,9 +33,21 @@ export default class App extends React.PureComponent<Props> {
     render() {
         return (
             <YandexMap style={styles.container}
-                       cameraPosition={initialCameraPosition}
-                       onInteraction={(event) => console.warn(event)}
-            >
+                       cameraPosition={initialCameraPosition}>
+                <YandexPlacemark
+                    image={require('./assets/marker.png')}
+                    location={{latitude: 43.0020, longitude: 41.0167}}
+                    anchor={{x: 0.5, y: 1}}
+                    scale={0.4}
+                    onTap={() => console.warn('marker tapped')}
+                />
+                <YandexPlacemark
+                    location={{latitude: 43.0030, longitude: 41.0167}}
+                />
+                <YandexPlacemark
+                    location={{latitude: 43.0000, longitude: 41.0167}}
+                />
+
             </YandexMap>
         );
     }

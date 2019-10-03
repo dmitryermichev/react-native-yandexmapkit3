@@ -9,6 +9,8 @@ import YandexMap, {
     YandexMapProps
 } from "./YandexMap";
 
+import YandexPlacemark, {YandexPlacemarkProps,} from "./YandexPlacemark";
+
 const {RNYandexMapKit} = NativeModules;
 
 export {
@@ -18,6 +20,8 @@ export {
     Location,
     OnInteractionResult,
     OnInteractionCallback,
-    YandexMapProps
+    YandexMapProps,
+    YandexPlacemark,
+    YandexPlacemarkProps,
 };
 export default RNYandexMapKit;

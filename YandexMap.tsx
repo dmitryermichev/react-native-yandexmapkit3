@@ -7,7 +7,6 @@ export enum Event {
 }
 
 export type Location = {
-    type: Event,
     readonly latitude: number;
     readonly longitude: number;
 };
@@ -21,6 +20,17 @@ export interface CameraPosition {
     zoom: number;
     azimuth: number;
     tilt: number;
+}
+
+export interface NativeLocationChangedEvent {
+    point: LocationWithType;
+    zoom: number;
+    azimuth: number;
+    tilt: number;
+}
+
+interface LocationWithType extends Location {
+    type: Event
 }
 
 export type YandexMapProps = {
@@ -69,11 +79,19 @@ class YandexMap extends React.PureComponent<YandexMapProps, any> {
         );
     }
 
-    onMapEventInternal = (event: { nativeEvent: CameraPosition }) => {
+    onMapEventInternal = (event: { nativeEvent: NativeLocationChangedEvent }) => {
         const cameraEvent = event.nativeEvent;
         this.prevCameraPosition = cameraEvent;
         if (this.props.onInteraction && cameraEvent.point.type === Event.UserEvent) {
-            this.props.onInteraction(event.nativeEvent);
+            this.props.onInteraction({
+                point: {
+                    latitude: cameraEvent.point.latitude,
+                    longitude: cameraEvent.point.longitude,
+                },
+                zoom: cameraEvent.zoom,
+                azimuth: cameraEvent.azimuth,
+                tilt: cameraEvent.tilt,
+            });
         }
     };
 

@@ -19,6 +19,6 @@ public class ReactNativeYandexmapkit3Package implements ReactPackage {
 
     @Override
     public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
-        return Arrays.<ViewManager>asList(new YandexMapViewManager());
+        return Arrays.<ViewManager>asList(new YandexMapViewManager(), new YandexPlacemarkManager());
     }
 }
