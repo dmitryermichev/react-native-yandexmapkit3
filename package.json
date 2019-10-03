@@ -34,5 +34,8 @@
         "react": "^16.8.3",
         "react-native": "^0.59.10",
         "typescript": "^3.6.3"
+    },
+    "dependencies": {
+        "mem": "^5.1.1"
     }
 }
