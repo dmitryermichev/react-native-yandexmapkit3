@@ -9,7 +9,7 @@
  */
 
 import React from 'react';
-import {StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {Dimensions, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import {CameraPosition, YandexMap, YandexPlacemark} from 'react-native-yandexmapkit3';
 
 type Props = {}
@@ -32,6 +32,7 @@ const markers = [
 
 type State = {
     displayMarkers: boolean;
+    cameraPosition: CameraPosition;
 }
 
 export default class App extends React.PureComponent<Props, State> {
@@ -40,6 +41,7 @@ export default class App extends React.PureComponent<Props, State> {
 
         this.state = {
             displayMarkers: true,
+            cameraPosition: initialCameraPosition,
         }
     }
 
@@ -51,7 +53,11 @@ export default class App extends React.PureComponent<Props, State> {
         return (
             <>
                 <YandexMap style={styles.container}
-                           cameraPosition={initialCameraPosition}>
+                           cameraPosition={this.state.cameraPosition}
+                           onInteraction={(position) => this.setState(prevState => ({
+                               ...prevState,
+                               cameraPosition: position
+                           }))}>
                     {this.state.displayMarkers
                         ? markers.map(marker => (<YandexPlacemark
                             image={require('./assets/marker.png')}
@@ -64,17 +70,9 @@ export default class App extends React.PureComponent<Props, State> {
 
 
                 </YandexMap>
-                <TouchableOpacity style={{
-                    position: 'absolute',
-                    height: 50,
-                    flex: 1,
-                    backgroundColor: 'green',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                }}
-                                  onPress={() => this.toggleMarkers()}
-                >
-                    <Text>Makrers toggle</Text>
+                <TouchableOpacity style={styles.bottomButton}
+                                  onPress={() => this.toggleMarkers()}>
+                    <Text style={styles.buttonText}>Makrers toggle</Text>
                 </TouchableOpacity>
             </>
         );
@@ -82,6 +80,19 @@ export default class App extends React.PureComponent<Props, State> {
 }
 
 const styles = StyleSheet.create({
+    bottomButton: {
+        position: 'absolute',
+        bottom: 0,
+        height: 50,
+        width: Dimensions.get("window").width,
+        flex: 1,
+        backgroundColor: '#0d7a2f',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    buttonText: {
+        color: '#fff',
+    },
     container: {
         flex: 1,
         justifyContent: 'center',
