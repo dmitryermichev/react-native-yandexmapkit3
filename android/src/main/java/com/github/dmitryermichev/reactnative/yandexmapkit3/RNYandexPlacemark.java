@@ -22,6 +22,7 @@ import com.yandex.mapkit.map.IconStyle;
 import com.yandex.mapkit.map.Map;
 import com.yandex.mapkit.map.MapObject;
 import com.yandex.mapkit.map.MapObjectTapListener;
+import com.yandex.mapkit.map.PlacemarkMapObject;
 import com.yandex.runtime.image.ImageProvider;
 
 public class RNYandexPlacemark extends RNYandexMapObject {
@@ -30,24 +31,32 @@ public class RNYandexPlacemark extends RNYandexMapObject {
     private String imageUri;
     private PointF anchor = new PointF(0.5f, 0.5f);
     private float scale = 1.0f;
-    private MapObjectTapListener tapListener;
+
+    private PlacemarkMapObject placemark;
+    private Map map;
+    private ReactContext reactContext;
 
     public RNYandexPlacemark(Context context) {
         super(context);
 
-        final ReactContext reactContext = (ReactContext) context;
-        this.tapListener = new MapObjectTapListener() {
+        this.reactContext = (ReactContext) context;
+    }
+
+    private void setPlacemark(PlacemarkMapObject pm) {
+        this.placemark = pm;
+        this.placemark.addTapListener(new MapObjectTapListener() {
             @Override
             public boolean onMapObjectTap(@NonNull MapObject mapObject, @NonNull Point point) {
                 WritableMap payload = Arguments.createMap();
                 reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(RNYandexPlacemark.this.getId(), MAP_OBJECT_TAP_EVENT, payload);
                 return true;
             }
-        };
+        });
     }
 
     @Override
     public void addToMap(Map map) {
+        this.map = map;
         final IconStyle iconStyle = new IconStyle();
         iconStyle.setAnchor(this.getAnchor());
         iconStyle.setScale(this.getScale());
@@ -61,11 +70,12 @@ public class RNYandexPlacemark extends RNYandexMapObject {
                     .into(new CustomTarget<Bitmap>() {
                         @Override
                         public void onResourceReady(@NonNull Bitmap resource, @androidx.annotation.Nullable Transition<? super Bitmap> transition) {
-                            targetMap.getMapObjects().addPlacemark(
+                            PlacemarkMapObject placemark = targetMap.getMapObjects().addPlacemark(
                                     RNYandexPlacemark.this.getPoint(),
                                     ImageProvider.fromBitmap(resource, true, RNYandexPlacemark.this.getImageUri()),
                                     iconStyle
-                            ).addTapListener(RNYandexPlacemark.this.tapListener);
+                            );
+                            setPlacemark(placemark);
                         }
 
                         @Override
@@ -75,11 +85,19 @@ public class RNYandexPlacemark extends RNYandexMapObject {
                     });
 
         } else {
-            targetMap.getMapObjects().addPlacemark(
+            PlacemarkMapObject placemark = targetMap.getMapObjects().addPlacemark(
                     RNYandexPlacemark.this.getPoint(),
                     ImageProvider.fromResource(RNYandexPlacemark.this.getContext(), R.drawable.marker),
                     iconStyle
-            ).addTapListener(this.tapListener);
+            );
+            setPlacemark(placemark);
+        }
+    }
+
+    @Override
+    public void removeFromMap() {
+        if (this.placemark != null && this.map != null) {
+            map.getMapObjects().remove(this.placemark);
         }
     }
 

@@ -36,6 +36,7 @@ public class YandexPlacemarkManager extends ViewGroupManager<RNYandexPlacemark> 
     @Override
     public void onDropViewInstance(@Nonnull RNYandexPlacemark view) {
         super.onDropViewInstance(view);
+        view.removeFromMap();
     }
 
     @ReactProp(name="location")

@@ -9,7 +9,7 @@
  */
 
 import React from 'react';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 import {CameraPosition, YandexMap, YandexPlacemark} from 'react-native-yandexmapkit3';
 
 type Props = {}
@@ -24,31 +24,59 @@ const initialCameraPosition: CameraPosition = {
     tilt: 0,
 };
 
-export default class App extends React.PureComponent<Props> {
+const markers = [
+    {latitude: 43.0030, longitude: 41.0167},
+    {latitude: 43.0020, longitude: 41.0157},
+    {latitude: 43.0010, longitude: 41.0147},
+];
+
+type State = {
+    displayMarkers: boolean;
+}
+
+export default class App extends React.PureComponent<Props, State> {
     constructor(props: Props) {
         super(props);
+
+        this.state = {
+            displayMarkers: true,
+        }
     }
 
+    toggleMarkers() {
+        this.setState(prevState => ({...prevState, displayMarkers: !prevState.displayMarkers}))
+    }
 
     render() {
         return (
-            <YandexMap style={styles.container}
-                       cameraPosition={initialCameraPosition}>
-                <YandexPlacemark
-                    image={require('./assets/marker.png')}
-                    location={{latitude: 43.0020, longitude: 41.0167}}
-                    anchor={{x: 0.5, y: 1}}
-                    scale={0.4}
-                    onTap={() => console.warn('marker tapped')}
-                />
-                <YandexPlacemark
-                    location={{latitude: 43.0030, longitude: 41.0167}}
-                />
-                <YandexPlacemark
-                    location={{latitude: 43.0000, longitude: 41.0167}}
-                />
+            <>
+                <YandexMap style={styles.container}
+                           cameraPosition={initialCameraPosition}>
+                    {this.state.displayMarkers
+                        ? markers.map(marker => (<YandexPlacemark
+                            image={require('./assets/marker.png')}
+                            location={marker}
+                            anchor={{x: 0.5, y: 1}}
+                            scale={0.4}
+                            onTap={() => console.warn('marker tapped')}
+                        />))
+                        : null}
 
-            </YandexMap>
+
+                </YandexMap>
+                <TouchableOpacity style={{
+                    position: 'absolute',
+                    height: 50,
+                    flex: 1,
+                    backgroundColor: 'green',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                }}
+                                  onPress={() => this.toggleMarkers()}
+                >
+                    <Text>Makrers toggle</Text>
+                </TouchableOpacity>
+            </>
         );
     }
 }

@@ -60,6 +60,7 @@ public class YandexMapViewManager extends ViewGroupManager<RNYandexMap> {
 
     @Override
     public void addView(RNYandexMap parent, View child, int index) {
+        super.addView(parent, child, index);
         // Пропускаем добавление если объект не MapObject
         if (!(child instanceof RNYandexMapObject)) {
             return;

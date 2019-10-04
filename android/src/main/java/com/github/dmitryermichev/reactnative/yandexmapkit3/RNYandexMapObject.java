@@ -13,4 +13,5 @@ public abstract class RNYandexMapObject extends ReactViewGroup {
     }
 
     public abstract void addToMap(Map map);
+    public abstract void removeFromMap();
 }
