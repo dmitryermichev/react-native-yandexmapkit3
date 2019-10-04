@@ -25,7 +25,7 @@ import com.yandex.mapkit.map.MapObjectTapListener;
 import com.yandex.mapkit.map.PlacemarkMapObject;
 import com.yandex.runtime.image.ImageProvider;
 
-public class RNYandexPlacemark extends RNYandexMapObject {
+public class RNYandexPlacemark extends RNYandexMapObject implements MapObjectTapListener {
 
     private Point point;
     private String imageUri;
@@ -38,20 +38,12 @@ public class RNYandexPlacemark extends RNYandexMapObject {
 
     public RNYandexPlacemark(Context context) {
         super(context);
-
         this.reactContext = (ReactContext) context;
     }
 
     private void setPlacemark(PlacemarkMapObject pm) {
         this.placemark = pm;
-        this.placemark.addTapListener(new MapObjectTapListener() {
-            @Override
-            public boolean onMapObjectTap(@NonNull MapObject mapObject, @NonNull Point point) {
-                WritableMap payload = Arguments.createMap();
-                reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(RNYandexPlacemark.this.getId(), MAP_OBJECT_TAP_EVENT, payload);
-                return true;
-            }
-        });
+        this.placemark.addTapListener(this);
     }
 
     @Override
@@ -131,5 +123,11 @@ public class RNYandexPlacemark extends RNYandexMapObject {
 
     public float getScale() {
         return this.scale;
+    }
+
+    public boolean onMapObjectTap(@NonNull MapObject mapObject, @NonNull Point point) {
+        WritableMap payload = Arguments.createMap();
+        reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(RNYandexPlacemark.this.getId(), MAP_OBJECT_TAP_EVENT, payload);
+        return true;
     }
 }

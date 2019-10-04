@@ -1,6 +1,7 @@
 package com.github.dmitryermichev.reactnative.yandexmapkit3;
 
 import android.graphics.PointF;
+import android.util.Log;
 import android.view.View;
 
 import com.facebook.react.bridge.ReadableMap;
