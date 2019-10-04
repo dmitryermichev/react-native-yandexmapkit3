@@ -1,6 +1,7 @@
 import {NativeModules} from 'react-native';
 
 import YandexMap, {
+    BoundingBox,
     CameraPosition,
     Event,
     Location,
@@ -8,6 +9,8 @@ import YandexMap, {
     OnInteractionResult,
     YandexMapProps
 } from "./YandexMap";
+
+import {locationsToBoundingBox} from "./Utils";
 
 import YandexPlacemark, {YandexPlacemarkProps,} from "./YandexPlacemark";
 
@@ -18,10 +21,12 @@ export {
     CameraPosition,
     Event,
     Location,
+    BoundingBox,
     OnInteractionResult,
     OnInteractionCallback,
     YandexMapProps,
     YandexPlacemark,
     YandexPlacemarkProps,
+    locationsToBoundingBox,
 };
 export default RNYandexMapKit;

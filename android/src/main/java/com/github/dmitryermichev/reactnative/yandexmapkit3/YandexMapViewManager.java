@@ -14,6 +14,7 @@ import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReactContext;
+import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.common.MapBuilder;
@@ -21,6 +22,7 @@ import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.ViewGroupManager;
 import com.facebook.react.uimanager.annotations.ReactProp;
 import com.facebook.react.uimanager.events.RCTEventEmitter;
+import com.yandex.mapkit.geometry.BoundingBox;
 import com.yandex.mapkit.geometry.Point;
 import com.yandex.mapkit.map.CameraPosition;
 import com.yandex.mapkit.map.IconStyle;
@@ -72,7 +74,36 @@ public class YandexMapViewManager extends ViewGroupManager<RNYandexMap> {
     }
 
     @ReactProp(name="cameraPosition")
-    public void setCameraPosition(RNYandexMap mapView, ReadableMap cameraPosition){
+    public void setCameraPosition(RNYandexMap mapView, ReadableMap cameraPositionMap) throws WrongParamsException {
+        // Проверяем что передано. BoundingBox или сразу CameraPosition
+        if (cameraPositionMap.hasKey("southWest")
+                && cameraPositionMap.hasKey("northEast")
+                && cameraPositionMap.hasKey("gap")) {
+            mapView.getMap().move(this.fromBoundingBox(mapView, cameraPositionMap));
+        } else {
+            mapView.getMap().move(this.fromCameraPosition(cameraPositionMap));
+        }
+    }
+
+    private CameraPosition fromBoundingBox(RNYandexMap mapView, ReadableMap bboxMap) throws WrongParamsException {
+        ReadableMap southWest = bboxMap.getMap("southWest");
+        ReadableMap northEast = bboxMap.getMap("northEast");
+        if (southWest == null || northEast == null) {
+            throw new WrongParamsException("wrong boundingBox params");
+        }
+        Point swPoint = new Point(southWest.getDouble("latitude"), southWest.getDouble("longitude"));
+        Point nePoint = new Point(northEast.getDouble("latitude"), northEast.getDouble("longitude"));
+        float gap = (float) bboxMap.getDouble("gap");
+        BoundingBox boundingBox = new BoundingBox(swPoint, nePoint);
+        CameraPosition exactCamPosition = mapView.getMap().cameraPosition(boundingBox);
+        return new CameraPosition(exactCamPosition.getTarget(),
+                exactCamPosition.getZoom() - gap,
+                exactCamPosition.getAzimuth(),
+                exactCamPosition.getTilt()
+        );
+    }
+
+    private CameraPosition fromCameraPosition(ReadableMap cameraPosition) {
         ReadableMap location = cameraPosition.getMap("point");
         double latitude = 0;
         double longitude = 0;
@@ -83,8 +114,7 @@ public class YandexMapViewManager extends ViewGroupManager<RNYandexMap> {
         float zoom = (float) cameraPosition.getDouble("zoom");
         float azimuth = (float) cameraPosition.getDouble("azimuth");
         float tilt = (float) cameraPosition.getDouble("tilt");
-
-        mapView.getMap().move(new CameraPosition(new Point(latitude, longitude), zoom, azimuth, tilt));
+        return new CameraPosition(new Point(latitude, longitude), zoom, azimuth, tilt);
     }
 
     @Nullable

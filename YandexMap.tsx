@@ -22,6 +22,12 @@ export interface CameraPosition {
     tilt: number;
 }
 
+export interface BoundingBox {
+    southWest: Location;
+    northEast: Location;
+    gap: number;
+}
+
 export interface NativeLocationChangedEvent {
     point: LocationWithType;
     zoom: number;
@@ -34,7 +40,7 @@ interface LocationWithType extends Location {
 }
 
 export type YandexMapProps = {
-    cameraPosition: CameraPosition;
+    cameraPosition: CameraPosition | BoundingBox;
     onInteraction?: OnInteractionCallback;
 } & ViewProps;
 
@@ -54,14 +60,9 @@ class YandexMap extends React.PureComponent<YandexMapProps, any> {
         if (!this.prevCameraPosition || !nextProps.cameraPosition) {
             return;
         }
-        if (
-            this.prevCameraPosition.point.latitude !== nextProps.cameraPosition.point.latitude ||
-            this.prevCameraPosition.point.longitude !== nextProps.cameraPosition.point.longitude ||
-            this.prevCameraPosition.zoom !== nextProps.cameraPosition.zoom ||
-            this.prevCameraPosition.azimuth !== nextProps.cameraPosition.azimuth ||
-            this.prevCameraPosition.tilt !== nextProps.cameraPosition.tilt
-        ) {
-            this.nativeMap!.setNativeProps({cameraPosition: nextProps.cameraPosition});
+
+        if (this.nativeMap) {
+            this.nativeMap.setNativeProps({cameraPosition: nextProps.cameraPosition});
         }
     }
 

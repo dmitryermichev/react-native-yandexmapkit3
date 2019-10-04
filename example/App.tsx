@@ -10,7 +10,13 @@
 
 import React from 'react';
 import {Dimensions, StyleSheet, Text, TouchableOpacity} from 'react-native';
-import {CameraPosition, YandexMap, YandexPlacemark} from 'react-native-yandexmapkit3';
+import {
+    BoundingBox,
+    CameraPosition,
+    locationsToBoundingBox,
+    YandexMap,
+    YandexPlacemark,
+} from 'react-native-yandexmapkit3';
 
 type Props = {}
 
@@ -24,6 +30,12 @@ const initialCameraPosition: CameraPosition = {
     tilt: 0,
 };
 
+const initialBoundingBox: BoundingBox = {
+    gap: 0.8,
+    northEast: {latitude: 43.0000, longitude: 41.0167},
+    southWest: {latitude: 44.0000, longitude: 42.0167},
+};
+
 const markers = [
     {latitude: 43.0030, longitude: 41.0167},
     {latitude: 43.0020, longitude: 41.0157},
@@ -32,8 +44,9 @@ const markers = [
 
 type State = {
     displayMarkers: boolean;
-    cameraPosition: CameraPosition;
+    cameraPosition: CameraPosition | BoundingBox;
 }
+
 
 export default class App extends React.PureComponent<Props, State> {
     constructor(props: Props) {
@@ -41,7 +54,7 @@ export default class App extends React.PureComponent<Props, State> {
 
         this.state = {
             displayMarkers: true,
-            cameraPosition: initialCameraPosition,
+            cameraPosition: locationsToBoundingBox(markers, 0.5),
         }
     }
 
