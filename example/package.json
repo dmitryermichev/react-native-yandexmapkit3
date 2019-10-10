@@ -13,8 +13,8 @@
         "@types/react-native": "^0.60.17",
         "@types/react-test-renderer": "^16.9.0",
         "mem": "^5.1.1",
-        "react": "16.8.3",
-        "react-native": "0.59",
+        "react": "16.8.6",
+        "react-native": "0.60.5",
         "react-native-yandexmapkit3": "file:../",
         "typescript": "^3.6.3"
     },
