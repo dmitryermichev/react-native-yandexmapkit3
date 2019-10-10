@@ -10,13 +10,7 @@
 
 import React from 'react';
 import {Dimensions, StyleSheet, Text, TouchableOpacity} from 'react-native';
-import {
-    BoundingBox,
-    CameraPosition,
-    locationsToBoundingBox,
-    YandexMap,
-    YandexPlacemark,
-} from 'react-native-yandexmapkit3';
+import {BoundingBox, CameraPosition, locationsToBoundingBox, YandexMap,} from 'react-native-yandexmapkit3';
 
 type Props = {}
 
@@ -71,15 +65,15 @@ export default class App extends React.PureComponent<Props, State> {
                                ...prevState,
                                cameraPosition: position
                            }))}>
-                    {this.state.displayMarkers
-                        ? markers.map(marker => (<YandexPlacemark
-                            image={require('./assets/marker.png')}
-                            location={marker}
-                            anchor={{x: 0.5, y: 1}}
-                            scale={0.4}
-                            onTap={() => console.warn('marker tapped')}
-                        />))
-                        : null}
+                    {/*{this.state.displayMarkers*/}
+                    {/*    ? markers.map(marker => (<YandexPlacemark*/}
+                    {/*        image={require('./assets/marker.png')}*/}
+                    {/*        location={marker}*/}
+                    {/*        anchor={{x: 0.5, y: 1}}*/}
+                    {/*        scale={0.4}*/}
+                    {/*        onTap={() => console.warn('marker tapped')}*/}
+                    {/*    />))*/}
+                    {/*    : null}*/}
 
 
                 </YandexMap>

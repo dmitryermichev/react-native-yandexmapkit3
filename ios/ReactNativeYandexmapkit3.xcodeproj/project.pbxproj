@@ -7,7 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		79D051B6234F3445002C4AC9 /* RNYandexPlacemark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D051B5234F3445002C4AC9 /* RNYandexPlacemark.swift */; };
+		79D051B8234F35DC002C4AC9 /* RNYandexPlacemarkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D051B7234F35DC002C4AC9 /* RNYandexPlacemarkManager.swift */; };
+		79D051BA234F3691002C4AC9 /* RNYandexPlacemark.m in Sources */ = {isa = PBXBuildFile; fileRef = 79D051B9234F3691002C4AC9 /* RNYandexPlacemark.m */; };
+		79D051BB234F4330002C4AC9 /* RNYandexMapView.h in Sources */ = {isa = PBXBuildFile; fileRef = 79EA2C1C234F179C00A7315D /* RNYandexMapView.h */; };
+		79D051BC234F4330002C4AC9 /* RNYandexMapKit.h in Sources */ = {isa = PBXBuildFile; fileRef = 79EA2C18234F179100A7315D /* RNYandexMapKit.h */; };
+		79D051BD234F4330002C4AC9 /* RCTConvert+YMK.h in Sources */ = {isa = PBXBuildFile; fileRef = 79EA2C15234F178400A7315D /* RCTConvert+YMK.h */; };
+		79D051BE234F4330002C4AC9 /* ReactNativeYandexmapkit3.h in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5881CC2AC0600A0062D /* ReactNativeYandexmapkit3.h */; };
+		79EA2C17234F178400A7315D /* RCTConvert+YMK.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EA2C16234F178400A7315D /* RCTConvert+YMK.m */; };
+		79EA2C1A234F179100A7315D /* RNYandexMapKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EA2C19234F179100A7315D /* RNYandexMapKit.m */; };
+		79EA2C1D234F179C00A7315D /* RNYandexMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EA2C1B234F179C00A7315D /* RNYandexMapView.m */; };
+		79EA2C1F234F17A700A7315D /* RNYandexMapManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EA2C1E234F17A600A7315D /* RNYandexMapManager.m */; };
 		B3E7B58A1CC2AC0600A0062D /* ReactNativeYandexmapkit3.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* ReactNativeYandexmapkit3.m */; };
+		FC953EDFFF5C58080D851068 /* libPods-ReactNativeYandexmapkit3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 85320BFFE659029713E260D9 /* libPods-ReactNativeYandexmapkit3.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,7 +35,21 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0F5DB9CAD85C2E19BF63F9B6 /* Pods-ReactNativeYandexmapkit3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeYandexmapkit3.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeYandexmapkit3/Pods-ReactNativeYandexmapkit3.debug.xcconfig"; sourceTree = "<group>"; };
 		134814201AA4EA6300B7C361 /* libReactNativeYandexmapkit3.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libReactNativeYandexmapkit3.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		52C279B5D571AEAE5B4E2DCC /* Pods-ReactNativeYandexmapkit3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeYandexmapkit3.release.xcconfig"; path = "Target Support Files/Pods-ReactNativeYandexmapkit3/Pods-ReactNativeYandexmapkit3.release.xcconfig"; sourceTree = "<group>"; };
+		79D051B4234F3444002C4AC9 /* ReactNativeYandexmapkit3-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ReactNativeYandexmapkit3-Bridging-Header.h"; sourceTree = "<group>"; };
+		79D051B5234F3445002C4AC9 /* RNYandexPlacemark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNYandexPlacemark.swift; sourceTree = "<group>"; };
+		79D051B7234F35DC002C4AC9 /* RNYandexPlacemarkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNYandexPlacemarkManager.swift; sourceTree = "<group>"; };
+		79D051B9234F3691002C4AC9 /* RNYandexPlacemark.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNYandexPlacemark.m; sourceTree = "<group>"; };
+		79EA2C15234F178400A7315D /* RCTConvert+YMK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RCTConvert+YMK.h"; sourceTree = "<group>"; };
+		79EA2C16234F178400A7315D /* RCTConvert+YMK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTConvert+YMK.m"; sourceTree = "<group>"; };
+		79EA2C18234F179100A7315D /* RNYandexMapKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNYandexMapKit.h; sourceTree = "<group>"; };
+		79EA2C19234F179100A7315D /* RNYandexMapKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNYandexMapKit.m; sourceTree = "<group>"; };
+		79EA2C1B234F179C00A7315D /* RNYandexMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNYandexMapView.m; sourceTree = "<group>"; };
+		79EA2C1C234F179C00A7315D /* RNYandexMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNYandexMapView.h; sourceTree = "<group>"; };
+		79EA2C1E234F17A600A7315D /* RNYandexMapManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNYandexMapManager.m; sourceTree = "<group>"; };
+		85320BFFE659029713E260D9 /* libPods-ReactNativeYandexmapkit3.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactNativeYandexmapkit3.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3E7B5881CC2AC0600A0062D /* ReactNativeYandexmapkit3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReactNativeYandexmapkit3.h; sourceTree = "<group>"; };
 		B3E7B5891CC2AC0600A0062D /* ReactNativeYandexmapkit3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReactNativeYandexmapkit3.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -33,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC953EDFFF5C58080D851068 /* libPods-ReactNativeYandexmapkit3.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,10 +77,40 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
+				79D051B9234F3691002C4AC9 /* RNYandexPlacemark.m */,
+				79D051B7234F35DC002C4AC9 /* RNYandexPlacemarkManager.swift */,
+				79D051B5234F3445002C4AC9 /* RNYandexPlacemark.swift */,
+				79EA2C1C234F179C00A7315D /* RNYandexMapView.h */,
+				79EA2C1B234F179C00A7315D /* RNYandexMapView.m */,
+				79EA2C1E234F17A600A7315D /* RNYandexMapManager.m */,
+				79EA2C18234F179100A7315D /* RNYandexMapKit.h */,
+				79EA2C19234F179100A7315D /* RNYandexMapKit.m */,
+				79EA2C15234F178400A7315D /* RCTConvert+YMK.h */,
+				79EA2C16234F178400A7315D /* RCTConvert+YMK.m */,
 				B3E7B5881CC2AC0600A0062D /* ReactNativeYandexmapkit3.h */,
 				B3E7B5891CC2AC0600A0062D /* ReactNativeYandexmapkit3.m */,
 				134814211AA4EA7D00B7C361 /* Products */,
+				F249EDB4CC9C56F2288E619C /* Pods */,
+				A6A90E19A97D7ABD731A953E /* Frameworks */,
+				79D051B4234F3444002C4AC9 /* ReactNativeYandexmapkit3-Bridging-Header.h */,
 			);
+			sourceTree = "<group>";
+		};
+		A6A90E19A97D7ABD731A953E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				85320BFFE659029713E260D9 /* libPods-ReactNativeYandexmapkit3.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F249EDB4CC9C56F2288E619C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0F5DB9CAD85C2E19BF63F9B6 /* Pods-ReactNativeYandexmapkit3.debug.xcconfig */,
+				52C279B5D571AEAE5B4E2DCC /* Pods-ReactNativeYandexmapkit3.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -63,6 +120,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "ReactNativeYandexmapkit3" */;
 			buildPhases = (
+				380933E5521DB498AC47DD48 /* [CP] Check Pods Manifest.lock */,
 				58B511D71A9E6C8500147676 /* Sources */,
 				58B511D81A9E6C8500147676 /* Frameworks */,
 				58B511D91A9E6C8500147676 /* CopyFiles */,
@@ -87,6 +145,7 @@
 				TargetAttributes = {
 					58B511DA1A9E6C8500147676 = {
 						CreatedOnToolsVersion = 6.1.1;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -95,6 +154,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 58B511D21A9E6C8500147676;
@@ -107,12 +167,48 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		380933E5521DB498AC47DD48 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ReactNativeYandexmapkit3-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		58B511D71A9E6C8500147676 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79D051BB234F4330002C4AC9 /* RNYandexMapView.h in Sources */,
+				79D051BC234F4330002C4AC9 /* RNYandexMapKit.h in Sources */,
+				79D051BD234F4330002C4AC9 /* RCTConvert+YMK.h in Sources */,
+				79D051BE234F4330002C4AC9 /* ReactNativeYandexmapkit3.h in Sources */,
 				B3E7B58A1CC2AC0600A0062D /* ReactNativeYandexmapkit3.m in Sources */,
+				79D051B6234F3445002C4AC9 /* RNYandexPlacemark.swift in Sources */,
+				79EA2C1A234F179100A7315D /* RNYandexMapKit.m in Sources */,
+				79D051B8234F35DC002C4AC9 /* RNYandexPlacemarkManager.swift in Sources */,
+				79EA2C1F234F17A700A7315D /* RNYandexMapManager.m in Sources */,
+				79EA2C1D234F179C00A7315D /* RNYandexMapView.m in Sources */,
+				79EA2C17234F178400A7315D /* RCTConvert+YMK.m in Sources */,
+				79D051BA234F3691002C4AC9 /* RNYandexPlacemark.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,33 +310,44 @@
 		};
 		58B511F01A9E6C8500147676 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0F5DB9CAD85C2E19BF63F9B6 /* Pods-ReactNativeYandexmapkit3.debug.xcconfig */;
 			buildSettings = {
-				HEADER_SEARCH_PATHS = (
-				"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"$(SRCROOT)/../../../React/**",
-					"$(SRCROOT)/../../react-native/React/**",
-				);
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = ReactNativeYandexmapkit3;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		58B511F11A9E6C8500147676 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../../../React/**",
 					"$(SRCROOT)/../../react-native/React/**",
 				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = ReactNativeYandexmapkit3;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "ReactNativeYandexmapkit3-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		58B511F11A9E6C8500147676 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52C279B5D571AEAE5B4E2DCC /* Pods-ReactNativeYandexmapkit3.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/../../../React/**",
+					"$(SRCROOT)/../../react-native/React/**",
+				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = ReactNativeYandexmapkit3;
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "ReactNativeYandexmapkit3-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
