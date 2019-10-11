@@ -18,6 +18,7 @@ Pod::Spec.new do |s|
 
   s.source_files = "ios/**/*.{h,m,swift}"
   s.requires_arc = true
+  spec.swift_version = '4.0'
 
   s.dependency "React"
 	
