@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		798A3343234F81ED005499B0 /* React.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 798A3342234F81ED005499B0 /* React.framework */; };
-		79D051B6234F3445002C4AC9 /* RNYandexPlacemark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D051B5234F3445002C4AC9 /* RNYandexPlacemark.swift */; };
-		79D051B8234F35DC002C4AC9 /* RNYandexPlacemarkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D051B7234F35DC002C4AC9 /* RNYandexPlacemarkManager.swift */; };
 		79D051BA234F3691002C4AC9 /* RNYandexPlacemark.m in Sources */ = {isa = PBXBuildFile; fileRef = 79D051B9234F3691002C4AC9 /* RNYandexPlacemark.m */; };
 		79D051BB234F4330002C4AC9 /* RNYandexMapView.h in Sources */ = {isa = PBXBuildFile; fileRef = 79EA2C1C234F179C00A7315D /* RNYandexMapView.h */; };
 		79D051BC234F4330002C4AC9 /* RNYandexMapKit.h in Sources */ = {isa = PBXBuildFile; fileRef = 79EA2C18234F179100A7315D /* RNYandexMapKit.h */; };
@@ -46,8 +44,6 @@
 		79A90BEC234F7F4200368D49 /* folly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = folly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79A90BEE234F7F4200368D49 /* glog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = glog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79D051B4234F3444002C4AC9 /* ReactNativeYandexmapkit3-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ReactNativeYandexmapkit3-Bridging-Header.h"; sourceTree = "<group>"; };
-		79D051B5234F3445002C4AC9 /* RNYandexPlacemark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNYandexPlacemark.swift; sourceTree = "<group>"; };
-		79D051B7234F35DC002C4AC9 /* RNYandexPlacemarkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNYandexPlacemarkManager.swift; sourceTree = "<group>"; };
 		79D051B9234F3691002C4AC9 /* RNYandexPlacemark.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNYandexPlacemark.m; sourceTree = "<group>"; };
 		79EA2C15234F178400A7315D /* RCTConvert+YMK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RCTConvert+YMK.h"; sourceTree = "<group>"; };
 		79EA2C16234F178400A7315D /* RCTConvert+YMK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTConvert+YMK.m"; sourceTree = "<group>"; };
@@ -87,8 +83,6 @@
 			isa = PBXGroup;
 			children = (
 				79D051B9234F3691002C4AC9 /* RNYandexPlacemark.m */,
-				79D051B7234F35DC002C4AC9 /* RNYandexPlacemarkManager.swift */,
-				79D051B5234F3445002C4AC9 /* RNYandexPlacemark.swift */,
 				79EA2C1C234F179C00A7315D /* RNYandexMapView.h */,
 				79EA2C1B234F179C00A7315D /* RNYandexMapView.m */,
 				79EA2C1E234F17A600A7315D /* RNYandexMapManager.m */,
@@ -218,9 +212,7 @@
 				79D051BD234F4330002C4AC9 /* RCTConvert+YMK.h in Sources */,
 				79D051BE234F4330002C4AC9 /* ReactNativeYandexmapkit3.h in Sources */,
 				B3E7B58A1CC2AC0600A0062D /* ReactNativeYandexmapkit3.m in Sources */,
-				79D051B6234F3445002C4AC9 /* RNYandexPlacemark.swift in Sources */,
 				79EA2C1A234F179100A7315D /* RNYandexMapKit.m in Sources */,
-				79D051B8234F35DC002C4AC9 /* RNYandexPlacemarkManager.swift in Sources */,
 				79EA2C1F234F17A700A7315D /* RNYandexMapManager.m in Sources */,
 				79EA2C1D234F179C00A7315D /* RNYandexMapView.m in Sources */,
 				79EA2C17234F178400A7315D /* RCTConvert+YMK.m in Sources */,

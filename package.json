@@ -1,7 +1,7 @@
 {
     "name": "react-native-yandexmapkit3",
     "title": "React Native Yandexmapkit3",
-  "version": "0.0.3",
+  "version": "0.0.4",
     "description": "React native module for Yandex Map Kit MapView support",
     "main": "index.js",
     "types": "index.d.ts",
