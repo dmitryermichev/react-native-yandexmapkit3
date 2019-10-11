@@ -14,10 +14,24 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1BEE828C124E6416179B904A9F66D794"
+               BuildableName = "React"
+               BlueprintName = "React"
+               ReferencedContainer = "container:Pods/Pods.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "58B511DA1A9E6C8500147676"
-               BuildableName = "libReactNativeYandexmapkit3.a"
-               BlueprintName = "ReactNativeYandexmapkit3"
-               ReferencedContainer = "container:ReactNativeYandexmapkit3.xcodeproj">
+               BuildableName = "libreact-native-yandexmapkit3.a"
+               BlueprintName = "react-native-yandexmapkit3"
+               ReferencedContainer = "container:react-native-yandexmapkit3.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -29,6 +43,15 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "58B511DA1A9E6C8500147676"
+            BuildableName = "libreact-native-yandexmapkit3.a"
+            BlueprintName = "react-native-yandexmapkit3"
+            ReferencedContainer = "container:react-native-yandexmapkit3.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -46,9 +69,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "58B511DA1A9E6C8500147676"
-            BuildableName = "libReactNativeYandexmapkit3.a"
-            BlueprintName = "ReactNativeYandexmapkit3"
-            ReferencedContainer = "container:ReactNativeYandexmapkit3.xcodeproj">
+            BuildableName = "libreact-native-yandexmapkit3.a"
+            BlueprintName = "react-native-yandexmapkit3"
+            ReferencedContainer = "container:react-native-yandexmapkit3.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -64,9 +87,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "58B511DA1A9E6C8500147676"
-            BuildableName = "libReactNativeYandexmapkit3.a"
-            BlueprintName = "ReactNativeYandexmapkit3"
-            ReferencedContainer = "container:ReactNativeYandexmapkit3.xcodeproj">
+            BuildableName = "libreact-native-yandexmapkit3.a"
+            BlueprintName = "react-native-yandexmapkit3"
+            ReferencedContainer = "container:react-native-yandexmapkit3.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

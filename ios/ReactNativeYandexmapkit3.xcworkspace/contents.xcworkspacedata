@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:ReactNativeYandexmapkit3.xcodeproj">
+      location = "group:/Users/devaquafon/ReactNative/react-native-yandexmapkit3/ios/react-native-yandexmapkit3.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
