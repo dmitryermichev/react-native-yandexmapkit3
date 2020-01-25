@@ -6,10 +6,13 @@ import android.graphics.PointF;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.RequestBuilder;
+import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.request.target.CustomTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.facebook.react.bridge.Arguments;
@@ -55,26 +58,32 @@ public class RNYandexPlacemark extends RNYandexMapObject implements MapObjectTap
 
         final Map targetMap = map;
         if (this.getImageUri() != null) {
-            Log.d("RNYandexMap", "Loading marker image " + this.getImageUri());
-            Glide.with(this)
-                    .asBitmap()
-                    .load(Uri.parse(this.getImageUri()))
-                    .into(new CustomTarget<Bitmap>() {
-                        @Override
-                        public void onResourceReady(@NonNull Bitmap resource, @androidx.annotation.Nullable Transition<? super Bitmap> transition) {
-                            PlacemarkMapObject placemark = targetMap.getMapObjects().addPlacemark(
-                                    RNYandexPlacemark.this.getPoint(),
-                                    ImageProvider.fromBitmap(resource, true, RNYandexPlacemark.this.getImageUri()),
-                                    iconStyle
-                            );
-                            setPlacemark(placemark);
-                        }
+            String imageUrl = this.getImageUri();
+            boolean isUrl = imageUrl.startsWith("http");
+            RequestBuilder<Bitmap> rm = Glide.with(this).asBitmap();
+            if (isUrl) {
+                rm = rm.load(Uri.parse(this.getImageUri()));
+            } else {
+                int resourceId = this.reactContext.getResources().getIdentifier(imageUrl, "drawable", reactContext.getPackageName());
+                rm = rm.load(resourceId);
+            }
 
-                        @Override
-                        public void onLoadCleared(@androidx.annotation.Nullable Drawable placeholder) {
+            rm.into(new CustomTarget<Bitmap>() {
+                @Override
+                public void onResourceReady(@NonNull Bitmap resource, @androidx.annotation.Nullable Transition<? super Bitmap> transition) {
+                    PlacemarkMapObject placemark = targetMap.getMapObjects().addPlacemark(
+                            RNYandexPlacemark.this.getPoint(),
+                            ImageProvider.fromBitmap(resource, true, RNYandexPlacemark.this.getImageUri()),
+                            iconStyle
+                    );
+                    setPlacemark(placemark);
+                }
 
-                        }
-                    });
+                @Override
+                public void onLoadCleared(@androidx.annotation.Nullable Drawable placeholder) {
+
+                }
+            });
 
         } else {
             PlacemarkMapObject placemark = targetMap.getMapObjects().addPlacemark(
@@ -119,6 +128,12 @@ public class RNYandexPlacemark extends RNYandexMapObject implements MapObjectTap
 
     public void setScale(float scale) {
         this.scale = scale;
+        if (this.placemark != null) {
+            final IconStyle iconStyle = new IconStyle();
+            iconStyle.setAnchor(this.getAnchor());
+            iconStyle.setScale(this.getScale());
+            this.placemark.setIconStyle(iconStyle);
+        }
     }
 
     public float getScale() {

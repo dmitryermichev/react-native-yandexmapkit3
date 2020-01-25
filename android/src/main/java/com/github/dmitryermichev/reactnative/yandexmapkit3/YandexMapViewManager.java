@@ -73,6 +73,20 @@ public class YandexMapViewManager extends ViewGroupManager<RNYandexMap> {
         }
     }
 
+    @Override
+    public void removeView(RNYandexMap parent, View view) {
+        super.removeView(parent, view);
+
+        // Пропускаем добавление если объект не MapObject
+        if (!(view instanceof RNYandexMapObject)) {
+            return;
+        }
+
+        if (view instanceof RNYandexPlacemark) {
+            ((RNYandexPlacemark) view).removeFromMap();
+        }
+    }
+
     @ReactProp(name="cameraPosition")
     public void setCameraPosition(RNYandexMap mapView, ReadableMap cameraPositionMap) throws WrongParamsException {
         // Проверяем что передано. BoundingBox или сразу CameraPosition
