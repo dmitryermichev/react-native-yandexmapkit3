@@ -45,6 +45,7 @@
 		79A90BEE234F7F4200368D49 /* glog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = glog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79D051B4234F3444002C4AC9 /* ReactNativeYandexmapkit3-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ReactNativeYandexmapkit3-Bridging-Header.h"; sourceTree = "<group>"; };
 		79D051B9234F3691002C4AC9 /* RNYandexPlacemark.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNYandexPlacemark.m; sourceTree = "<group>"; };
+		79D868E824043EF300DA5A47 /* Image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Image.xcassets; sourceTree = "<group>"; };
 		79EA2C15234F178400A7315D /* RCTConvert+YMK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RCTConvert+YMK.h"; sourceTree = "<group>"; };
 		79EA2C16234F178400A7315D /* RCTConvert+YMK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTConvert+YMK.m"; sourceTree = "<group>"; };
 		79EA2C18234F179100A7315D /* RNYandexMapKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNYandexMapKit.h; sourceTree = "<group>"; };
@@ -82,6 +83,7 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
+				79D868E824043EF300DA5A47 /* Image.xcassets */,
 				79D051B9234F3691002C4AC9 /* RNYandexPlacemark.m */,
 				79EA2C1C234F179C00A7315D /* RNYandexMapView.h */,
 				79EA2C1B234F179C00A7315D /* RNYandexMapView.m */,
