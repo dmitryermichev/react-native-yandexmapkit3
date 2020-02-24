@@ -37,7 +37,7 @@ public class MainActivity extends ReactActivity {
 }
 ```
 
-## Пример использования
+## Пример использования (typescript)
 
 ```typescript
 
