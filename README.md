@@ -1,43 +1,122 @@
 # react-native-yandexmapkit3
 
-## Getting started
+## Установка
 
 `$ npm install react-native-yandexmapkit3 --save`
 
-### Mostly automatic installation
+## Настройка
 
-`$ react-native link react-native-yandexmapkit3`
+Для корректной работы карты необходимо инициализировать модуль при старте и указать ключ для доступа к картам. 
 
-### Manual installation
+### Android
 
+```java
+public class MainActivity extends ReactActivity {
 
-#### iOS
+    /**
+     * Returns the name of the main component registered from JavaScript.
+     * This is used to schedule rendering of the component.
+     */
+    @Override
+    protected String getMainComponentName() {
+        return "mapsTest";
+    }
 
-1. In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
-2. Go to `node_modules` ➜ `react-native-yandexmapkit3` and add `ReactNativeYandexmapkit3.xcodeproj`
-3. In XCode, in the project navigator, select your project. Add `libReactNativeYandexmapkit3.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
-4. Run your project (`Cmd+R`)<
+    @Override
+    protected void onStart() {
+        super.onStart();
+        ReactNativeYandexmapkit3Module.init(this, "YANDEX_MAP_API_KEY");
+        ReactNativeYandexmapkit3Module.onStart();
+    }
 
-#### Android
+    @Override
+    protected void onStop() {
+        super.onStop();
+        ReactNativeYandexmapkit3Module.onStop();
+    }
+}
+```
 
-1. Open up `android/app/src/main/java/[...]/MainApplication.java`
-  - Add `import com.github.dmitryermichev.reactnative.yandexmapkit3.ReactNativeYandexmapkit3Package;` to the imports at the top of the file
-  - Add `new ReactNativeYandexmapkit3Package()` to the list returned by the `getPackages()` method
-2. Append the following lines to `android/settings.gradle`:
-  	```
-  	include ':react-native-yandexmapkit3'
-  	project(':react-native-yandexmapkit3').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-yandexmapkit3/android')
-  	```
-3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
-  	```
-      compile project(':react-native-yandexmapkit3')
-  	```
+## Пример использования
 
+```typescript
 
-## Usage
-```javascript
-import ReactNativeYandexmapkit3 from 'react-native-yandexmapkit3';
+import * as React from 'react';
+import {StatusBar, StyleSheet, View, Text, Button, Alert} from 'react-native';
 
-// TODO: What to do with the module?
-ReactNativeYandexmapkit3;
+import {Colors,} from 'react-native/Libraries/NewAppScreen';
+import {CameraPosition, YandexMap, YandexPlacemark} from "react-native-yandexmapkit3";
+import {useState} from "react";
+
+const initialPosition: CameraPosition = {
+  point: {
+    latitude: 55.755833,
+    longitude: 37.617222,
+  },
+  azimuth: 0,
+  zoom: 15,
+  tilt: 0,
+};
+
+const App = () => {
+  const [cameraPosition, setCameraPosition] = useState(initialPosition);
+  const [markerLocations, setMarkerLocations] = useState([initialPosition.point]);
+  return (
+    <>
+      <StatusBar barStyle="dark-content" />
+      <YandexMap style={{flex: 1}}
+                 cameraPosition={cameraPosition}
+                 onInteraction={cp => setCameraPosition(cp)}
+      >
+        {markerLocations.map(loc => <YandexPlacemark
+            location={loc}
+            onTap={() => Alert.alert("Нажат маркер", JSON.stringify(loc))}
+            />
+        )}
+      </YandexMap>
+
+      <View style={styles.bottom}>
+        <View style={styles.locationInfoContainer}>
+            <Text style={styles.locationInfo}>Широта: {cameraPosition.point.latitude}</Text>
+            <Text style={styles.locationInfo}>Долгота: {cameraPosition.point.longitude}</Text>
+        </View>
+        <View style={styles.buttonContainer}>
+            <Button title={"Добавить маркер"} onPress={() => {
+                setMarkerLocations([...markerLocations, cameraPosition.point])
+            }}/>
+        </View>
+      </View>
+    </>
+  );
+};
+
+const styles = StyleSheet.create({
+    locationInfo: {
+        fontSize: 16,
+    },
+    locationInfoContainer: {
+        flex: 1,
+        height: 50,
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        alignItems: 'center'
+    },
+    bottom: {
+        backgroundColor: '#ffffff80',
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+        right: 0,
+        flexDirection: 'column',
+    },
+    buttonContainer: {
+        flex: 1,
+        height: 50,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+});
+
+export default App;
+
 ```
