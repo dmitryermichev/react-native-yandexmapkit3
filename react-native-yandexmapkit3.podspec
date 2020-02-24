@@ -22,6 +22,6 @@ Pod::Spec.new do |s|
 
   s.dependency "React"
 	
-  # s.dependency 'YandexMapKit', '~> 3.2.0'
+  s.dependency 'YandexMapKit', '~> 3.2.0'
 end
 
