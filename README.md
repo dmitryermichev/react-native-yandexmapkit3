@@ -132,8 +132,8 @@ const App = () => {
 
       <View style={styles.bottom}>
         <View style={styles.locationInfoContainer}>
-            <Text style={styles.locationInfo}>Широта: {cameraPosition.point.latitude}</Text>
-            <Text style={styles.locationInfo}>Долгота: {cameraPosition.point.longitude}</Text>
+            <Text style={styles.locationInfo}>Широта: {round(cameraPosition.point.latitude)}</Text>
+            <Text style={styles.locationInfo}>Долгота: {round(cameraPosition.point.longitude)}</Text>
         </View>
         <View style={styles.buttonContainer}>
             <Button title={"Добавить маркер"} onPress={() => {
@@ -144,6 +144,10 @@ const App = () => {
     </>
   );
 };
+
+function round(num: number) {
+    return Math.round(num * 100000) / 100000;
+}
 
 const styles = StyleSheet.create({
     locationInfo: {
@@ -173,5 +177,6 @@ const styles = StyleSheet.create({
 });
 
 export default App;
+
 
 ```
