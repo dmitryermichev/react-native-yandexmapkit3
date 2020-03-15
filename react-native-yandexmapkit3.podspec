@@ -23,6 +23,6 @@ Pod::Spec.new do |s|
   s.dependency "React"
 
   s.dependency 'YandexMapKit', '~> 3.4'
-  spec.ios.resource_bundle = { 'react-native-yandexmapkit3' => 'ios/Image.xcassets' }
+  s.resource_bundle = {'react-native-yandexmapkit3' => ['ios/*.{xcassets,storyboard}']}
 end
 
