@@ -125,6 +125,7 @@ const App = () => {
       >
         {markerLocations.map(loc => <YandexPlacemark
             location={loc}
+            image={require('./marker.png')}
             onTap={() => Alert.alert("Нажат маркер", JSON.stringify(loc))}
             />
         )}

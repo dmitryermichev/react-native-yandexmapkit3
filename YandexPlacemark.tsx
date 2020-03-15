@@ -9,7 +9,7 @@ export type Anchor = {
 
 export type YandexPlacemarkProps = {
     location: Location;
-    image?: ImageRequireSource;
+    image: ImageRequireSource;
     scale?: number;
     anchor?: Anchor;
     onTap?: () => void;

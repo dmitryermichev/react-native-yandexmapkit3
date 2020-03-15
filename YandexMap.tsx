@@ -75,7 +75,7 @@ class YandexMap extends React.PureComponent<YandexMapProps, any> {
             }}
                          {...rest}
                          cameraPosition={cameraPosition}
-                         onMapEvent={this.onMapEventInternal}
+                         onMapEvent={this.onMapEventInternal.bind(this)}
             />
         );
     }
@@ -95,29 +95,6 @@ class YandexMap extends React.PureComponent<YandexMapProps, any> {
             });
         }
     };
-
-    // runCommand = (name: string, args: any) => {
-    //   switch (Platform.OS) {
-    //     case 'android':
-    //       NativeModules.UIManager.dispatchViewManagerCommand(
-    //         findNodeHandle(this.nativeMap),
-    //         NativeModules.UIManager.RNYandexMap.Commands[name],
-    //         args
-    //       );
-    //       break;
-    //
-    //     case 'ios':
-    //       NativeModules.RNYandexMapViewManager[name].apply(
-    //         NativeModules.RNYandexMapViewManager[name],
-    //         [findNodeHandle(this.nativeMap), ...args]
-    //       );
-    //       break;
-    //
-    //     default:
-    //       break;
-    //   }
-    // }
-
 }
 
 const RNYandexMap = requireNativeComponent('RNYandexMap', YandexMap);
